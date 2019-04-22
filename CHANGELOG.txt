@@ -1,0 +1,41 @@
+1.7.0
+Released as open source under LGPLv3
+Misc cleanup of codebase
+Renamed project as simply MCS
+
+1.6.6
+Added support for custom MR path location
+
+1.6.5
+Fixes issue with boundary calculation for ON_ATTACH intervals
+
+1.6.4
+Prepping work for windows universal support (not quite ready yet)
+Adds support for clearing blendshapes when CharacterManager.Start is called (on by default)
+Added OnPreLODChange and OnPostLODChange events (these are fired during the lod value in CharacterManager changes)
+Improved check for figure testing when importing assets
+Fixed a rare issue with normal texture importing when creating a material
+Added fix to allow Wii U builds to work properly
+Improved error handling when bad mon file exception occurs
+Fixed issue where duplicate bone names in figure bone hierarchy could cause error when attaching or removing clothing, props, and hair
+Added support for running JCT at edit time (note, this should only be used in very specific cases, it will ruin your bone state data), off by default
+Added support for auto closing the jaw (under CharacterManager -> Advanced)
+
+1.6.3
+Adds support for automatic recalculation of mesh boundaries, frequency choices are never, on attach, on morph
+Resolves missing morph groups from character inspector
+Fixed error with head overlay material check when null
+Fixed serialization issue with prefabs for materials, LODs, and morphs
+Fixed issue with Alpha Injection when using prefabed figures
+Fixed problems and errors with prop attachment and usage
+Improved several eye morph qualities at lower LODs
+
+1.6.2
+Resolved issue with content packs where parent and child had identical names and caused syncing issues
+Added support to remove unlinked content packs that were free floating to Editor
+Improved visual layout of Editor component
+Added support for detecting flawed CoreMesh and ContentPack assets
+Fixed misc hair attachment
+Added support for Overlay texture and color linked from CIHair to paint cap texture on head
+Fixed prop attachment in Editor
+Shows prop names instead of ID in Editor

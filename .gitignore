@@ -1,0 +1,20 @@
+bin/*
+build/*
+obj/
+
+*.pidb
+*.userprefs
+*.swp
+*.DS_Store
+*.nib
+*.suo
+*.user
+*.pfx
+*.tmp
+.vs/
+.vscode/
+
+#include your own references, do not track these in git
+UnityEngine.dll
+UnityEditor.dll
+UnityDLLs/

@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{862CB436-4E0A-4AE6-BDF4-1A636878817B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MCS_Core</RootNamespace>
+    <AssemblyName>MCS_Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <ReleaseVersion>1.7</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\build\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug5.5|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>..\build\Debug</OutputPath>
+    <DefineConstants>DEBUG;UNITY_TARGET_GTE_5_5;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>True</Optimize>
+    <OutputPath>..\build\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <DebugType>none</DebugType>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <Choose>
+    <When Condition="$(DefineConstants.Contains('UNITY_TARGET_GTE_5_5'))">
+      <ItemGroup>
+        <Reference Include="UnityEngine">
+          <HintPath>..\UnityDlls\5.5\UnityEngine.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="UnityEngine">
+          <HintPath>..\UnityDlls\5.3\UnityEngine.dll</HintPath>
+        </Reference>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Reference Include="System">
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>..\UnityDlls\5.3\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\UnityDlls\5.3\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\UnityDlls\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MCS_Utilities\MCS_Utilities.csproj">
+      <Project>{BB0EB3B1-241F-46BC-812A-1BAD99734ED7}</Project>
+      <Name>MCS_Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Foundations\MorphGroupService.cs" />
+    <Compile Include="Foundations\MorphGroup.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="CoreServices\AlphaInjectionManager.cs" />
+    <Compile Include="CoreServices\CSBoneService.cs" />
+    <Compile Include="CoreServices\CSInjectionMask.cs" />
+    <Compile Include="Costuming\CIattachmentPoint.cs" />
+    <Compile Include="Costuming\CIbody.cs" />
+    <Compile Include="Costuming\CIclothing.cs" />
+    <Compile Include="Costuming\CIhair.cs" />
+    <Compile Include="Costuming\CIprop.cs" />
+    <Compile Include="Costuming\CostumeItem.cs" />
+    <Compile Include="Costuming\CostumeModel.cs" />
+    <Compile Include="Foundations\ContentPack.cs" />
+    <Compile Include="Foundations\ContentPackModel.cs" />
+    <Compile Include="Foundations\CoreMesh.cs" />
+    <Compile Include="Foundations\CoreMeshMetaData.cs" />
+    <Compile Include="Utilities\AssetSchematicImporter.cs" />
+    <Compile Include="Utilities\BlendShapes.cs" />
+    <Compile Include="Utilities\ConvertWeldedMeshMorph.cs" />
+    <Compile Include="Utilities\KeyValueFloat.cs" />
+    <Compile Include="Utilities\TextureUtilities.cs" />
+    <Compile Include="Utilities\Extensions\Extensions.cs" />
+    <Compile Include="Utility\Schematic\AssetDependency.cs" />
+    <Compile Include="_Experimental\AttachmentPointSystem\APLayout.cs" />
+    <Compile Include="_Experimental\AttachmentPointSystem\SinglePropDefaultLayout.cs" />
+    <Compile Include="_Experimental\JCTs\Expand.cs" />
+    <Compile Include="_Experimental\JCTs\Profiler.cs" />
+    <Compile Include="CoreServices\CSBoneService\GeometryTransferUtility.cs" />
+    <Compile Include="CoreServices\CSBoneService\BoneUtility.cs" />
+    <Compile Include="_Experimental\JCTs\JCTTransition.cs" />
+    <Compile Include="Foundations\CoreMetaData.cs" />
+    <Compile Include="Utilities\EnumHelper.cs" />
+    <Compile Include="ContentLibrary\ContentLibrary.cs" />
+    <Compile Include="ContentLibrary\ContentLibrarySO.cs" />
+    <Compile Include="Utility\Event\ILazyUpdate.cs" />
+    <Compile Include="Utility\Event\ILazyLateUpdate.cs" />
+    <Compile Include="Utility\Event\ILazyFixedUpdate.cs" />
+    <Compile Include="Utility\Serialize\ISerializable.cs" />
+    <Compile Include="ContentLibrary\AssetCreator.cs" />
+    <Compile Include="ContentLibrary\MonDeserializer.cs" />
+    <Compile Include="Utility\Schematic\AssetSchematic.cs" />
+    <Compile Include="Utility\Schematic\Base\OriginAndDescription.cs" />
+    <Compile Include="Utility\Schematic\Base\StreamAndPath.cs" />
+    <Compile Include="Utility\Schematic\Base\StructureAndPhysics.cs" />
+    <Compile Include="Utility\Schematic\Base\TypeAndFunction.cs" />
+    <Compile Include="Utility\Schematic\Base\VersionAndControl.cs" />
+    <Compile Include="Utility\Schematic\Enum\Enumeration.cs" />
+    <Compile Include="Utility\Schematic\Structure\ItemStructure.cs" />
+    <Compile Include="Utility\Schematic\Structure\MaterialStructure.cs" />
+    <Compile Include="Foundations\CoreMorphs.cs" />
+    <Compile Include="Services\StreamingMorphs.cs" />
+    <Compile Include="ContentLibrary\RuntimeTextureLoader.cs" />
+    <Compile Include="Utility\Schematic\Structure\MorphStructure.cs" />
+    <Compile Include="Utility\Schematic\AssetSchematicUtility.cs" />
+    <Compile Include="MCSCharacterManager.cs" />
+    <Compile Include="Item\MCSClothing.cs" />
+    <Compile Include="Item\MCSFigure.cs" />
+    <Compile Include="Item\MCSHair.cs" />
+    <Compile Include="Item\MCSItem.cs" />
+    <Compile Include="Item\MCSItemModel.cs" />
+    <Compile Include="Item\MCSItemSchematic.cs" />
+    <Compile Include="Item\MCSMesh.cs" />
+    <Compile Include="Item\MCSProp.cs" />
+    <Compile Include="Item\MCSProperty.cs" />
+    <Compile Include="Character\MCSCharacter.cs" />
+    <Compile Include="Character\MCSCharacterModel.cs" />
+    <Compile Include="Character\MCSCharacterSchematic.cs" />
+    <Compile Include="_Experimental\AttachmentPointSystem\MCSAttachmentPointConfiguration.cs" />
+    <Compile Include="ContentLibrary\MCSObjectLoader.cs" />
+    <Compile Include="ContentLibrary\MCSResourceManager.cs" />
+    <Compile Include="Utility\MCSResourceConverter.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

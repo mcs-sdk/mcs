@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{938E0098-9E22-4AC1-86B6-EB3EEBB96DE0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Scripts</RootNamespace>
+    <AssemblyName>Scripts</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <ReleaseVersion>1.7</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Editor\MaterialImporter.cs" />
+    <Compile Include="Editor\SearchableWindow.cs" />
+    <Compile Include="AttachmentPoints\SinglePropDefaultLayoutExample.cs" />
+    <Compile Include="AttachmentPoints\SpiralPropLayout.cs" />
+    <Compile Include="Editor\ContentLibrarySOEditor.cs" />
+    <Compile Include="Samples\AttachDetachClothing.cs" />
+    <Compile Include="Samples\DisableAllClothing.cs" />
+    <Compile Include="Samples\DriveMorph.cs" />
+    <Compile Include="Samples\HairRandomizer.cs" />
+    <Compile Include="Samples\SetMaterials.cs" />
+    <Compile Include="Editor\MCSResourceEditor.cs" />
+    <Compile Include="Editor\MCSCharacterManagerEditor.cs" />
+    <Compile Include="Editor\MCSDebugInfo.cs" />
+    <Compile Include="Editor\MCSMorphEditor.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MCS_Utilities\MCS_Utilities.csproj">
+      <Project>{BB0EB3B1-241F-46BC-812A-1BAD99734ED7}</Project>
+      <Name>MCS_Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MCS_Importer\MCS_Importer.csproj">
+      <Project>{3981EBB4-7CD9-49DA-A3A4-2E971D77EF06}</Project>
+      <Name>MCS_Importer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MCS_Core\MCS_Core.csproj">
+      <Project>{862CB436-4E0A-4AE6-BDF4-1A636878817B}</Project>
+      <Name>MCS_Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="UnityEditor">
+      <HintPath>..\UnityDlls\5.3\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\UnityDlls\5.3\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
