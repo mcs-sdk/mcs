@@ -178,31 +178,31 @@ namespace M3D_DLL
 
 
             if (textures.ContainsKey ("albedo")) {
-				material.SetTexture ("_MainTex", textures["albedo"]);
+				material.SetTexture (MaterialConstants.MainTexPropID, textures["albedo"]);
 			}
 			if (textures.ContainsKey ("metal")) {
-				material.SetTexture ("_MetallicGlossMap", textures["metal"]);
-                material.EnableKeyword("_METALLICGLOSSMAP");
+				material.SetTexture (MaterialConstants.MetallicGlossMapPropID, textures["metal"]);
+                material.EnableKeyword(MaterialConstants.METALLICGLOSSMAP_KEYWORD);
 			}
 			if (textures.ContainsKey ("height")) {
-				material.SetTexture ("_ParallaxMap", textures["height"]);
-                material.EnableKeyword("_PARALLAXMAP");
+				material.SetTexture (MaterialConstants.ParallaxMapPropID, textures["height"]);
+                material.EnableKeyword(MaterialConstants.PARALLAXMAP_KEYWORD);
 			}
 			if (textures.ContainsKey ("normal")) {
-				material.SetTexture ("_BumpMap", textures["normal"]);
-                material.EnableKeyword("_NORMALMAP");
+				material.SetTexture (MaterialConstants.BumpMapPropID, textures["normal"]);
+                material.EnableKeyword(MaterialConstants.NORMALMAP_KEYWORD);
 			}
 			if (textures.ContainsKey ("detail_normal")) {
-				material.SetTexture ("_DetailNormalMap", textures["detail_normal"]);
-                material.EnableKeyword("_DETAIL_MULX2");
+				material.SetTexture (MaterialConstants.DetailNormalMapPropID, textures["detail_normal"]);
+                material.EnableKeyword(MaterialConstants.DETAIL_MULX2_KEYWORD);
 			}
 			if (textures.ContainsKey ("specular")) {
-				material.SetTexture ("_SpecGlossMap", textures["specular"]);
-                material.EnableKeyword("_SPECGLOSSMAP");
+				material.SetTexture (MaterialConstants.SpecGlossMapPropID, textures["specular"]);
+                material.EnableKeyword(MaterialConstants.SPECGLOSSMAP_KEYWORD);
 			}
 			if (textures.ContainsKey ("emission")) {
-				material.SetTexture ("_EmissionMap", textures["emission"]);
-                material.EnableKeyword("_EMISSION");
+				material.SetTexture (MaterialConstants.EmissionMapPropID, textures["emission"]);
+                material.EnableKeyword(MaterialConstants.EMISSION_KEYWORD);
 			}
 
             /*
@@ -216,16 +216,16 @@ namespace M3D_DLL
 
 			if (!String.IsNullOrEmpty(schematic.structure_and_physics.material_structure.albedo_tint)) {
                 Color c = AssetSchematicUtility.ConvertColorStringToColor(schematic.structure_and_physics.material_structure.albedo_tint);
-                material.SetColor ("_Color", c);
+                material.SetColor (MaterialConstants.ColorPropID, c);
 			}
             if (!String.IsNullOrEmpty(schematic.structure_and_physics.material_structure.emission_value))
             {
                 Color c = AssetSchematicUtility.ConvertColorStringToColor(schematic.structure_and_physics.material_structure.emission_value);
-                material.SetColor("_EmissionColor", c);
+                material.SetColor(MaterialConstants.EmissionColorPropID, c);
             }
-            if (material.HasProperty("_DetailNormalMapScale") && schematic.structure_and_physics.material_structure.detail_normal_value>0f)
+            if (material.HasProperty(MaterialConstants.DetailNormalMapScalePropID) && schematic.structure_and_physics.material_structure.detail_normal_value>0f)
             {
-                material.SetFloat("_DetailNormalMapScale", schematic.structure_and_physics.material_structure.detail_normal_value);
+                material.SetFloat(MaterialConstants.DetailNormalMapScalePropID, schematic.structure_and_physics.material_structure.detail_normal_value);
             }
 
             if (schematic.structure_and_physics.material_structure.shader_keywords != null)
@@ -275,8 +275,6 @@ namespace M3D_DLL
                         default:
                             UnityEngine.Debug.Log("Invalid material property: " + schematic.origin_and_description.name + " => " + schematic.origin_and_description.mcs_id + " key: " + key);
                             throw new Exception("Invalid shader property");
-                            break;
-
                     }
                 }
             }
