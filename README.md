@@ -13,6 +13,9 @@ MCS is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
 
 You should have received a copy of the GNU Lesser General Public License along with MCS.  If not, see <https://www.gnu.org/licenses/>.
 
+### LGPL Static Linking Exemption
+There is one allowed exemption to the classic LGPL which is we give full permission to statically link, including through tools such as IL2CPP, the MCS library.
+
 ## Compiling
 For ease of use there is a Visual Studio solution file MCS.sln provided which has projects inside.
 
