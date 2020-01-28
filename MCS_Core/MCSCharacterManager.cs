@@ -1605,10 +1605,10 @@ namespace MCS
             {
                 return;
             }
-            if (material.HasProperty("_Overlay"))
+            if (material.HasProperty(MaterialConstants.OverlayPropID))
             {
-                material.SetTexture("_Overlay", null);
-                material.DisableKeyword("_OVERLAY");
+                material.SetTexture(MaterialConstants.OverlayPropID, null);
+                material.DisableKeyword(MaterialConstants.OVERLAY_KEYWORD);
             }
         }
         /// <summary>
@@ -1620,17 +1620,17 @@ namespace MCS
         public void InstallOverlay(Texture2D texture,Color color)
         {
             return;
-            if(texture == null)
-            {
-                return;
-            }
-            Material material = GetHairMaterial();
-            if (material.HasProperty("_Overlay"))
-            {
-                material.SetTexture("_Overlay", texture);
-                material.SetColor("_OverlayColor", color);
-                material.EnableKeyword("_OVERLAY");
-            }
+            //if(texture == null)
+            //{
+            //    return;
+            //}
+            //Material material = GetHairMaterial();
+            //if (material.HasProperty(MaterialIDs.OverlayMatID))
+            //{
+            //    material.SetTexture(MaterialIDs.OverlayMatID, texture);
+            //    material.SetColor(MaterialIDs.OverlayColorMatID, color);
+            //    material.EnableKeyword("_OVERLAY");
+            //}
         }
 
         /// <summary>

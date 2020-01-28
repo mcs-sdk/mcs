@@ -103,10 +103,65 @@ namespace MCS.CONSTANTS
         [Description("Never recalculate mesh boundaries")]
         NEVER
     }
-
 }
 
+public static class MaterialConstants
+{
+#if UNITY_TARGET_GTE_2017
 
+    // In Unity 2017+ we can easily cache the internal material property IDs to improve performance.
+
+    // Texture Properties
+    public static readonly int MainTexPropID = Shader.PropertyToID("_MainTex");
+    public static readonly int MetallicGlossMapPropID = Shader.PropertyToID("_MetallicGlossMap");
+    public static readonly int ParallaxMapPropID = Shader.PropertyToID("_ParallaxMap");
+    public static readonly int BumpMapPropID = Shader.PropertyToID("_BumpMap");
+    public static readonly int DetailNormalMapPropID = Shader.PropertyToID("_DetailNormalMap");
+    public static readonly int SpecGlossMapPropID = Shader.PropertyToID("_SpecGlossMap");
+    public static readonly int EmissionMapPropID = Shader.PropertyToID("_EmissionMap");
+    public static readonly int AlphaTexPropID = Shader.PropertyToID("_AlphaTex");
+    public static readonly int OverlayPropID = Shader.PropertyToID("_Overlay");
+
+    // Color Properties
+    public static readonly int ColorPropID = Shader.PropertyToID("_Color");
+    public static readonly int EmissionColorPropID = Shader.PropertyToID("_EmissionColor");
+    public static readonly int OverlayColorPropID = Shader.PropertyToID("_OverlayColor");
+
+    // Float Properties
+    public static readonly int DetailNormalMapScalePropID = Shader.PropertyToID("_DetailNormalMapScale");
+
+#else
+
+    // Texture Properties
+    public const string MainTexPropID = "_MainTex";
+    public const string MetallicGlossMapPropID = "_MetallicGlossMap";
+    public const string ParallaxMapPropID = "_ParallaxMap";
+    public const string BumpMapPropID = "_BumpMap";
+    public const string DetailNormalMapPropID = "_DetailNormalMap";
+    public const string SpecGlossMapPropID = "_SpecGlossMap";
+    public const string EmissionMapPropID = "_EmissionMap";
+    public const string AlphaTexPropID = "_AlphaTex";
+    public const string OverlayPropID = "_Overlay";
+
+    // Color Properties
+    public const string ColorPropID = "_Color";
+    public const string EmissionColorPropID = "_EmissionColor";
+    public const string OverlayColorPropID = "_OverlayColor";
+
+    // Float Properties
+    public const string DetailNormalMapScalePropID = "_DetailNormalMapScale";
+
+#endif
+
+    // Shader Keyword Constants
+    public const string METALLICGLOSSMAP_KEYWORD = "_METALLICGLOSSMAP";
+    public const string PARALLAXMAP_KEYWORD = "_PARALLAXMAP";
+    public const string NORMALMAP_KEYWORD = "_NORMALMAP";
+    public const string DETAIL_MULX2_KEYWORD = "_DETAIL_MULX2";
+    public const string SPECGLOSSMAP_KEYWORD = "_SPECGLOSSMAP";
+    public const string EMISSION_KEYWORD = "_EMISSION";
+    public const string OVERLAY_KEYWORD = "_OVERLAY";
+}
 
 public static class EnumHelper
 {

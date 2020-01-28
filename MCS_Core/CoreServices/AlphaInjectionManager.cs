@@ -520,7 +520,7 @@ namespace MCS.CORESERVICES
             for (int i = 0; i < materials.Length; i++)
             {
 
-                if (materials[i] == null || !materials[i].HasProperty("_AlphaTex"))
+                if (materials[i] == null || !materials[i].HasProperty(MaterialConstants.AlphaTexPropID))
                 {
                     continue;
                 }
@@ -567,7 +567,7 @@ namespace MCS.CORESERVICES
                             //uncomment if you want to debug the masks
                             //TextureUtilities.OverlayArrayOfTexturesGPU(ref tex, masks,"Unlit/AlphaCombiner",true);
                             temporaryTexture2D.Add(tex);
-                            materials[i].SetTexture("_AlphaTex", tex);
+                            materials[i].SetTexture(MaterialConstants.AlphaTexPropID, tex);
 
                             break;
                         case TEXTURE_MODE.FASTEST:
@@ -575,17 +575,17 @@ namespace MCS.CORESERVICES
                             //rt = TextureUtilities.OverlayArrayOfTexturesGPU(masks, "Unlit/AlphaCombiner", true);
                             temporaryRenderTextures[i] = rt;
                             //UnityEngine.Debug.Log("Assigning rt: " + smr.name + " | " + slot);
-                            materials[i].SetTexture("_AlphaTex", rt);
+                            materials[i].SetTexture(MaterialConstants.AlphaTexPropID, rt);
                             break;
                     }
                 } else
                 {
                     //no textures, clear it
-                    materials[i].SetTexture("_AlphaTex", null);
+                    materials[i].SetTexture(MaterialConstants.AlphaTexPropID, null);
                 }
 
                 /*
-                RenderTexture rtOld = materials[i].GetTexture("_AlphaTex") as RenderTexture;
+                RenderTexture rtOld = materials[i].GetTexture(MaterialIDs.AlphaTexMatID) as RenderTexture;
                 if(rtOld != null)
                 {
                     RenderTexture.Destroy(rtOld);
@@ -594,7 +594,7 @@ namespace MCS.CORESERVICES
 
                 //UnityEngine.Debug.Log("Drawing Alpha: " + materials[i].name + " | " + materials.Length + " | " + (masks != null ? masks.Length.ToString() : "null") + " | " + slot + " | " + (tex != null ? "Tex is not null" : "tex is null"));
                 //install the texture
-                //materials[i].SetTexture("_AlphaTex", tex);
+                //materials[i].SetTexture(MaterialIDs.AlphaTexMatID, tex);
             }
 
             if (Application.isPlaying)

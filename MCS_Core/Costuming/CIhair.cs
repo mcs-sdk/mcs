@@ -152,25 +152,25 @@ namespace MCS.COSTUMING
             {
                 tmpOverlay = null;
                 tmpOverlayColor = Color.clear;
-                headMat.DisableKeyword("_OVERLAY");
+                headMat.DisableKeyword(MaterialConstants.OVERLAY_KEYWORD);
             } else
             {
                 if (tmpOverlay != null || tmpOverlayColor.a > 0)
                 {
-                    headMat.EnableKeyword("_OVERLAY");
+                    headMat.EnableKeyword(MaterialConstants.OVERLAY_KEYWORD);
                 } else
                 {
-                    headMat.DisableKeyword("_OVERLAY");
+                    headMat.DisableKeyword(MaterialConstants.OVERLAY_KEYWORD);
                 }
             }
 
-            if (headMat.HasProperty("_Overlay"))
+            if (headMat.HasProperty(MaterialConstants.OverlayPropID))
             {
-                headMat.SetTexture("_Overlay", tmpOverlay);
+                headMat.SetTexture(MaterialConstants.OverlayPropID, tmpOverlay);
             }
-            if(headMat.HasProperty("_OverlayColor"))
+            if(headMat.HasProperty(MaterialConstants.OverlayColorPropID))
             {
-                headMat.SetColor("_OverlayColor", tmpOverlayColor);
+                headMat.SetColor(MaterialConstants.OverlayColorPropID, tmpOverlayColor);
             }
         }
 
@@ -199,16 +199,16 @@ namespace MCS.COSTUMING
             Texture tmpOverlay = null;
             Color tmpOverlayColor = Color.clear;
 
-            if (headMat.HasProperty("_Overlay"))
+            if (headMat.HasProperty(MaterialConstants.OverlayPropID))
             {
-                headMat.SetTexture("_Overlay", tmpOverlay);
+                headMat.SetTexture(MaterialConstants.OverlayPropID, tmpOverlay);
             }
-            if(headMat.HasProperty("_OverlayColor"))
+            if(headMat.HasProperty(MaterialConstants.OverlayColorPropID))
             {
-                headMat.SetColor("_OverlayColor", tmpOverlayColor);
+                headMat.SetColor(MaterialConstants.OverlayColorPropID, tmpOverlayColor);
             }
 
-            headMat.DisableKeyword("_OVERLAY");
+            headMat.DisableKeyword(MaterialConstants.OVERLAY_KEYWORD);
         }
 
 		private void FindAndSyncCap(){
